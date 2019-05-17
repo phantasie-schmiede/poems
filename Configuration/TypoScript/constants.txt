@@ -1,0 +1,15 @@
+plugin.tx_pspoems {
+	view {
+		# cat=plugin.tx_pspoems/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:ps_poems/Resources/Private/Templates/
+		# cat=plugin.tx_pspoems/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:ps_poems/Resources/Private/Partials/
+		# cat=plugin.tx_pspoems/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:ps_poems/Resources/Private/Layouts/
+	}
+
+	persistence {
+		# cat=plugin.tx_pspoems//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

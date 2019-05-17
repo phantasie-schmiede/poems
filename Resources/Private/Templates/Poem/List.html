@@ -1,0 +1,115 @@
+{namespace ps=PS\PsPoems\ViewHelpers}
+
+<f:layout name="Default" />
+<f:section name="main">
+	<div class="row text-center">
+		<div class="col-xs-12 col-md-offset-2 col-md-8">
+			<div class="filter_box">
+				<h4>
+					<f:translate key="filter-authors" />
+				</h4>
+				<div class="filter btn-group" data-filter-group="authors">
+					<a href="#filter-authors-any" data-filter="*" class="btn btn-default active">
+						<f:translate key="filter-all" />
+					</a>
+					<f:for each="{authors}" as="author">
+						<a href="#filter-authors-{author.name}" data-filter-value=".{author.name}" class="btn btn-default">{author.name}</a>
+					</f:for>
+				</div>
+			</div>
+			<div class="filter_box">
+				<h4>
+					<f:translate key="filter-languages" />
+				</h4>
+				<div class="filter btn-group" data-filter-group="languages">
+					<a href="#filter-languages-any" data-filter="*" class="btn btn-default active">
+						<f:translate key="filter-all" />
+					</a>
+					<f:for each="{languages}" as="language">
+						<a href="#filter-languages-{language.name}" data-filter-value=".{language.name}" class="btn btn-default">{language.name}</a>
+					</f:for>
+				</div>
+			</div>
+			<div class="filter_box">
+				<h4>
+					<f:translate key="sort-label" />
+				</h4>
+				<div class="sort-by btn-group">
+					<a href="#sort-original-order" class="btn btn-default active">
+						<f:translate key="sort-new" />
+					</a>
+					<a href="#sort-title" class="btn btn-default">
+						<f:translate key="sort-title" />
+					</a>
+					<a href="#sort-random" class="btn btn-default sort_random">
+						<f:translate key="sort-random" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-offset-2 col-md-8">
+			<div class="filter_box">
+				<h4>
+					<f:translate key="filter-categories" />
+				</h4>
+				<div class="filter btn-group" data-filter-group="categories">
+					<a href="#filter-categories-any" data-filter="*" class="btn btn-default active">
+						<f:translate key="filter-all" />
+					</a>
+					<f:for each="{categories}" as="category">
+						<a href="#filter-categories-{category.name}" data-filter-value=".{category.name}" class="btn btn-default">{category.name}</a>
+					</f:for>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="isotope-content">
+		<f:for each="{poems}" as="poem">
+			<div class="item poem col-xs-12 col-sm-6 col-md-4 col-lg-3
+				<f:for each='{poem.authors}' as='author'>
+					{author.name}
+				</f:for>
+				<f:for each='{poem.languages}' as='language'>
+					{language.name}
+				</f:for>
+				<f:for each='{poem.categories}' as='category'>
+					{category.name}
+				</f:for>
+			">
+				<button type="button" class="btn btn-default btn-block" data-toggle="collapse" data-target="#poem_{poem.uid}">
+					<span class="poem_title">{poem.title}</span>
+				</button>
+				<div id="poem_{poem.uid}" class="collapse text-center">
+					<div class="poem_body">
+						<p class="authors">
+							<f:translate key="by-with-space" />
+							<f:for each="{poem.authors}" as="author" iteration="iterator">
+								<f:if condition="{iterator.isLast}">
+									<f:then>
+										{author.name}
+									</f:then>
+									<f:else>
+										<f:if condition="{iterator.cycle} == {ps:subtract(a: '{iterator.total}', b: '1')}">
+											<f:then>
+												{author.name}
+												<f:translate key="and-with-spaces" />
+											</f:then>
+											<f:else>
+												{author.name}
+												<f:translate key="comma-with-space" />
+											</f:else>
+										</f:if>
+									</f:else>
+								</f:if>
+							</f:for>
+						</p>
+						<div class="poem_text">
+							<f:format.html>{poem.text}</f:format.html>
+						</div>
+					</div>
+				</div>
+			</div>
+		</f:for>
+	</div>
+</f:section>

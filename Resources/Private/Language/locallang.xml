@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the ps_poems extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="by-with-space">von</label>
+			<label index="and-with-spaces">und</label>
+			<label index="comma-with-space">,</label>
+			<label index="back-to-list">Zurück zur Übersicht</label>
+			<label index="filter-all">Alle</label>
+			<label index="filter-authors">Autor</label>
+			<label index="filter-categories">Kategorie</label>
+			<label index="filter-languages">Sprache</label>
+			<label index="sort-label">Sortierung</label>
+			<label index="sort-new">Neueste zuerst</label>
+			<label index="sort-title">nach Titel</label>
+			<label index="sort-random">zufällig</label>
+		</languageKey>
+	</data>
+</T3locallang>
