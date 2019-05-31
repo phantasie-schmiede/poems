@@ -1,114 +1,118 @@
-(function ($, undefined) {
-	"use strict";
+(function($, undefined) {
+    "use strict";
 
-	$(document).ready(function () {
-		var $container = $('#isotope-content'),
-			filters = {};
+    $(document).ready(function() {
+        const $container = $('#isotope-content'),
+            filters = {};
 
-		$container.isotope({
-			itemSelector: '.item',
-			layoutMode: 'masonry',
-			masonry: {
-				gutterWidth: 0
-			},
-			filter: '*',
-			animationOptions: {
-				duration: 750,
-				easing: 'linear',
-				queue: false
-			},
-			getSortData: {
-				title: '.poem_title', // text from querySelector
-			},
-			sortBy: 'original-order',
-			sortAscending: false
-		});
+        $container.isotope({
+            itemSelector: '.item',
+            layoutMode: 'masonry',
+            masonry: {
+                gutterWidth: 0
+            },
+            filter: '*',
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            },
+            getSortData: {
+                title: '.poem_title', // text from querySelector
+            },
+            sortBy: 'original-order',
+            sortAscending: false
+        });
 
-		// filter buttons
-		$('.filter a').click(function () {
-			var $this = $(this);
-			// don't proceed if already selected
-			if ($this.hasClass('active')) {
-				return false;
-			}
+        // filter buttons
+        $('.filter a').click(function() {
+            const $this = $(this);
+            // don't proceed if already selected
+            if ($this.hasClass('active')) {
+                return false;
+            }
 
-			var $optionSet = $this.parents('.filter');
-			// change selected class
-			$optionSet.find('.active').removeClass('active');
-			$this.addClass('active');
+            const $optionSet = $this.parents('.filter');
+            // change selected class
+            $optionSet.find('.active').removeClass('active');
+            $this.addClass('active');
 
-			// store filter value in object
-			// i.e. filters.color = 'red'
-			var group = $optionSet.attr('data-filter-group');
-			filters[group] = $this.attr('data-filter-value');
-			// convert object into array
-			var isoFilters = [];
-			for (var prop in filters) {
-				isoFilters.push(filters[prop])
-			}
-			var selector = isoFilters.join('');
-			$container.isotope({filter: selector});
+            // store filter value in object
+            // i.e. filters.color = 'red'
+            const group = $optionSet.attr('data-filter-group');
+            filters[group] = $this.attr('data-filter-value');
+            // convert object into array
+            let isoFilters = [];
 
-			return false;
-		});
+            for (let prop in filters) {
+                isoFilters.push(filters[prop])
+            }
 
-		//sort buttons
-		$('.sort-by a').click(function () {
-			var $this = $(this);
+            const selector = isoFilters.join('');
+            $container.isotope({filter: selector});
 
-			// get href attribute, minus the '#'
-			var linktext = $this.attr('href')
-			var sortName = linktext.slice(linktext.indexOf('#') + 6);
-			if (sortName == 'random') {
-				$container.isotope('shuffle');
-			}
+            return false;
+        });
 
-			// don't proceed if already selected
-			if ($this.hasClass('active')) {
-				return false;
-			}
+        //sort buttons
+        $('.sort-by a').click(function() {
+            const $this = $(this);
 
-			if (sortName == 'original-order') {
-				$container.isotope({
-					sortBy: sortName,
-					sortAscending: false
-				});
-			} else if (sortName == 'title') {
-				$container.isotope({
-					sortBy: sortName,
-					sortAscending: true
-				});
-			}
+            // get href attribute, minus the '#'
+            const linktext = $this.attr('href');
+            const sortName = linktext.slice(linktext.indexOf('#') + 6);
+            if ('random' === sortName) {
+                $container.isotope('shuffle');
+            }
 
-			// change selected class
-			var $optionSet = $this.parents('.sort-by');
-			$optionSet.find('.active').removeClass('active');
-			$this.addClass('active');
+            // don't proceed if already selected
+            if ($this.hasClass('active')) {
+                return false;
+            }
 
-			return false;
-		});
+            if ('original-order' === sortName) {
+                $container.isotope({
+                    sortBy: sortName,
+                    sortAscending: false
+                });
+            } else if ('title' === sortName) {
+                $container.isotope({
+                    sortBy: sortName,
+                    sortAscending: true
+                });
+            }
 
-		$('.collapse').on('shown.bs.collapse', function () {
-			$container.isotope('layout')
-		});
-		$('.collapse').on('hidden.bs.collapse', function () {
-			$container.isotope('layout')
-		});
+            // change selected class
+            const $optionSet = $this.parents('.sort-by');
+            $optionSet.find('.active').removeClass('active');
+            $this.addClass('active');
 
-		// show linked poem
-		function getURLParameter(name) {
-			return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
-		}
-		var poem = getURLParameter('poem');
-		if (poem) {
-			$('#poem_' + poem).collapse('show');
-		}
+            return false;
+        });
 
-		// close all other poems when opening one
-		$container.find('.item.poem button').on('click', function() {
-			$container.find('.item.poem .collapse.in').collapse('hide');
-		})
+        const $collapse = $('.collapse');
+        $collapse.on('shown.bs.collapse', function() {
+            $container.isotope('layout')
+        });
+        $collapse.on('hidden.bs.collapse', function() {
+            $container.isotope('layout')
+        });
 
-	});
+        // show linked poem
+        function getURLParameter(name) {
+            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
+        }
+
+        const poem = getURLParameter('poem');
+        if (poem) {
+            $('#poem_' + poem).collapse('show');
+        }
+
+        // close all other poems when opening one
+        $container.find('.item.poem button').on('click', function() {
+            $container.find('.item.poem .collapse.in').collapse('hide');
+        })
+
+    });
 
 })(jQuery);

@@ -1,2 +1,0 @@
-navigate to SASS folder
-cd typo3conf/ext/ps_poems/Resources/Private/Sass

@@ -1,17 +1,21 @@
 .ps-poems {
-	.filter_box {
-		display: inline-block;
-	}
-	#isotope-content {
-		margin-bottom: 30px;
-		.poem {
-			margin-top: 15px;
-			.authors {
-				font-style: italic
-			}
-			.btn {
-				white-space: normal;
-			}
-		}
-	}
+    .filter_box {
+        display: inline-block;
+    }
+
+    #isotope-content {
+        margin-bottom: 30px;
+
+        .poem {
+            margin-top: 15px;
+
+            .authors {
+                font-style: italic
+            }
+
+            .btn {
+                white-space: normal;
+            }
+        }
+    }
 }

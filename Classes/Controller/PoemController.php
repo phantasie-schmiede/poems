@@ -1,12 +1,12 @@
 <?php
-namespace PS\PsPoems\Controller;
+declare(strict_types=1);
 
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+namespace PSB\PsbPoems\Controller;
 
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 Daniel Ablass <dn@phantasie-schmiede.de>
+ *  (c) 2014-2019 Daniel Ablass <dn@phantasie-schmiede.de>, PSbits
  *
  *  All rights reserved
  *
@@ -26,47 +26,34 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
+use PSB\PsbFoundation\Traits\InjectionTrait;
+use PSB\PsbPoems\Domain\Repository\AuthorRepository;
+use PSB\PsbPoems\Domain\Repository\CategoryRepository;
+use PSB\PsbPoems\Domain\Repository\LanguageRepository;
+use PSB\PsbPoems\Domain\Repository\PoemRepository;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
+/**
+ * Class PoemController
+ * @package PSB\PsbPoems\Controller
+ */
 class PoemController extends ActionController
 {
+    use InjectionTrait;
 
-    /**
-     * @var \PS\PsPoems\Domain\Repository\PoemRepository
-     * @inject
-     */
-    protected $poemRepository;
-
-    /**
-     * @var \PS\PsPoems\Domain\Repository\AuthorRepository
-     * @inject
-     */
-    protected $authorRepository;
-
-    /**
-     * @var \PS\PsPoems\Domain\Repository\CategoryRepository
-     * @inject
-     */
-    protected $categoryRepository;
-
-    /**
-     * @var \PS\PsPoems\Domain\Repository\LanguageRepository
-     * @inject
-     */
-    protected $languageRepository;
-
-
-    public function listAction()
+    public function listAction(): void
     {
-        $poems = $this->poemRepository->findAll();
-        $authors = $this->authorRepository->findAll();
-        $categories = $this->categoryRepository->findAll();
-        $languages = $this->languageRepository->findAll();
+        $authors = $this->get(AuthorRepository::class)->findAll();
+        $categories = $this->get(CategoryRepository::class)->findAll();
+        $languages = $this->get(LanguageRepository::class)->findAll();
+        $poems = $this->get(PoemRepository::class)->findAll();
 
-        $this->view->assignMultiple(array(
-            'poems'      => $poems,
+        $this->view->assignMultiple([
             'authors'    => $authors,
             'categories' => $categories,
             'languages'  => $languages,
-        ));
+            'poems'      => $poems,
+        ]);
     }
-
 }

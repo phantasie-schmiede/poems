@@ -1,29 +1,28 @@
 <?php
-
-$EM_CONF[$_EXTKEY] = array(
-    'title'                         => 'PS | Poems',
-    'description'                   => 'manage and display poems',
+$EM_CONF['psb_poems'] = [
+    'title'                         => 'PSbits | Poems',
+    'description'                   => 'Manage and display poems',
     'category'                      => 'plugin',
     'author'                        => 'Daniel Ablass',
     'author_email'                  => 'dn@phantasie-schmiede.de',
-    'author_company'                => 'Phantasie-Schmiede Daniel Ablass und Tim-Jannick Stoffregen GbR | <a href="http://www.phantasie-schmiede.de/" target="_blank">www.phantasie-schmiede.de</a>',
     'shy'                           => '',
     'priority'                      => '',
     'module'                        => '',
-    'state'                         => 'alpha',
+    'state'                         => 'beta',
     'internal'                      => '',
     'uploadfolder'                  => 0,
     'createDirs'                    => '',
     'modify_tables'                 => '',
     'clearCacheOnLoad'              => 0,
     'lockType'                      => '',
-    'version'                       => '2.0.0',
-    'constraints'                   => array(
-        'depends'   => array(
-            'typo3' => '7.6.4-7.6.99',
-        ),
-        'conflicts' => array(),
-        'suggests'  => array(),
-    ),
+    'version'                       => '3.0.0',
+    'constraints'                   => [
+        'depends'   => [
+            'psb_foundation' => '',
+            'typo3'          => '9.5.6-9.5.99',
+        ],
+        'conflicts' => [],
+        'suggests'  => [],
+    ],
     '_md5_values_when_last_written' => '',
-);
+];

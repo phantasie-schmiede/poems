@@ -1,12 +1,12 @@
 <?php
-namespace PS\PsPoems\Domain\Model;
+declare(strict_types=1);
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+namespace PSB\PsbPoems\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 Daniel Ablass <dn@phantasie-schmiede.de>
+ *  (c) 2014-2019 Daniel Ablass <dn@phantasie-schmiede.de>, PSbits
  *
  *  All rights reserved
  *
@@ -26,78 +26,102 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
+use PSB\PsbFoundation\Utilities\ObjectUtility;
+use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
+/**
+ * Class Poem
+ * @package                      PSB\PsbPoems\Domain\Model
+ * @PSB\PsbFoundation\Tca\Config label=title; searchFields=title,text;
+ */
 class Poem extends AbstractEntity
 {
-
     /**
-     * @var string
-     */
-    protected $title;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\PS\PsPoems\Domain\Model\Author>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\PSB\PsbPoems\Domain\Model\Author>
+     * @PSB\PsbFoundation\Tca\FieldConfig type=mm; foreign_table=tx_psbpoems_domain_model_author;
+     *                                    mm=tx_psbpoems_poem_author_mm;
      */
     protected $authors;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\PS\PsPoems\Domain\Model\Category>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\PSB\PsbPoems\Domain\Model\Category>
+     * @PSB\PsbFoundation\Tca\FieldConfig type=mm; foreign_table=tx_psbpoems_domain_model_category;
+     *                                    mm=tx_psbpoems_poem_category_mm;
      */
     protected $categories;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\PS\PsPoems\Domain\Model\Language>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\PSB\PsbPoems\Domain\Model\Language>
+     * @PSB\PsbFoundation\Tca\FieldConfig type=mm; foreign_table=tx_psbpoems_domain_model_language;
+     *                                    mm=tx_psbpoems_poem_language_mm;
      */
     protected $languages;
 
     /**
      * @var string
+     * @PSB\PsbFoundation\Tca\FieldConfig type=text
      */
     protected $text;
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @var string
+     * @PSB\PsbFoundation\Tca\FieldConfig type=string
      */
-    public function getAuthors()
+    protected $title;
+
+    public function __construct()
+    {
+        $this->authors = ObjectUtility::get(ObjectStorage::class);
+        $this->categories = ObjectUtility::get(ObjectStorage::class);
+        $this->languages = ObjectUtility::get(ObjectStorage::class);
+    }
+
+    /**
+     * @return ObjectStorage
+     */
+    public function getAuthors(): ObjectStorage
     {
         return $this->authors;
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $authors
+     * @param ObjectStorage $authors
      */
-    public function setAuthors($authors)
+    public function setAuthors(ObjectStorage $authors): void
     {
         $this->authors = $authors;
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @return ObjectStorage
      */
-    public function getCategories()
+    public function getCategories(): ObjectStorage
     {
         return $this->categories;
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $categories
+     * @param ObjectStorage $categories
      */
-    public function setCategories($categories)
+    public function setCategories(ObjectStorage $categories): void
     {
         $this->categories = $categories;
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+     * @return ObjectStorage
      */
-    public function getLanguages()
+    public function getLanguages(): ObjectStorage
     {
         return $this->languages;
     }
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $languages
+     * @param ObjectStorage $languages
      */
-    public function setLanguages($languages)
+    public function setLanguages(ObjectStorage $languages): void
     {
         $this->languages = $languages;
     }
@@ -105,23 +129,7 @@ class Poem extends AbstractEntity
     /**
      * @return string
      */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param string $title
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
-
-    /**
-     * @return string
-     */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
@@ -129,9 +137,24 @@ class Poem extends AbstractEntity
     /**
      * @param string $text
      */
-    public function setText($text)
+    public function setText(string $text): void
     {
         $this->text = $text;
     }
 
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
 }

@@ -1,14 +1,16 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die('Access denied.');
-}
+/** @noinspection PhpFullyQualifiedNameUsageInspection */
+defined('TYPO3_MODE') or die();
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'PS.' . $_EXTKEY,
-    'Poems',
-    array(
-        'Poem' => 'list',
-    ),
-    // non-cacheable actions
-    array()
+call_user_func(
+    static function ($extensionKey) {
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'PSB.'.$extensionKey,
+            'poems',
+            [
+                'Poem' => 'list',
+            ]
+        );
+    },
+    'psb_poems'
 );

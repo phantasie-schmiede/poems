@@ -1,13 +1,12 @@
 <?php
-namespace PS\PsPoems\Domain\Repository;
+declare(strict_types=1);
 
-use TYPO3\CMS\Extbase\Persistence\QueryInterface;
-use TYPO3\CMS\Extbase\Persistence\Repository;
+namespace PSB\PsbPoems\Domain\Repository;
 
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 Daniel Ablass <dn@phantasie-schmiede.de>
+ *  (c) 2014-2019 Daniel Ablass <dn@phantasie-schmiede.de>, PSbits
  *
  *  All rights reserved
  *
@@ -27,11 +26,17 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\Repository;
+
+/**
+ * Class PoemRepository
+ * @package PSB\PsbPoems\Domain\Repository
+ */
 class PoemRepository extends Repository
 {
-
-    protected $defaultOrderings = array(
-        'crdate' => QueryInterface::ORDER_ASCENDING,
-    );
-
+    protected $defaultOrderings = [
+        'crdate' => QueryInterface::ORDER_DESCENDING,
+    ];
 }

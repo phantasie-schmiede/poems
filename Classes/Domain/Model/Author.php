@@ -1,12 +1,12 @@
 <?php
-namespace PS\PsPoems\Domain\Model;
+declare(strict_types=1);
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+namespace PSB\PsbPoems\Domain\Model;
 
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2014 Daniel Ablass <dn@phantasie-schmiede.de>
+ *  (c) 2014-2019 Daniel Ablass <dn@phantasie-schmiede.de>, PSbits
  *
  *  All rights reserved
  *
@@ -26,28 +26,14 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-class Author extends AbstractEntity
+
+use PSB\PsbFoundation\Domain\Model\ModelWithName;
+
+/**
+ * Class Author
+ * @package                      PSB\PsbPoems\Domain\Model
+ * @PSB\PsbFoundation\Tca\Config label=name; searchFields=name;
+ */
+class Author extends ModelWithName
 {
-
-    /**
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
 }

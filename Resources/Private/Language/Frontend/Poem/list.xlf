@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file datatype="plaintext" date="2019-05-25T13:02:00+01:00" original="messages" product-name="psb_poems" source-language="en">
+        <header />
+        <body>
+            <trans-unit id="by-with-space">
+                <source>by</source>
+            </trans-unit>
+            <trans-unit id="and-with-spaces">
+                <source>and</source>
+            </trans-unit>
+            <trans-unit id="comma-with-space">
+                <source>,</source>
+            </trans-unit>
+            <trans-unit id="back-to-list">
+                <source>Back to list</source>
+            </trans-unit>
+            <trans-unit id="filter-all">
+                <source>All</source>
+            </trans-unit>
+            <trans-unit id="filter-authors">
+                <source>Author</source>
+            </trans-unit>
+            <trans-unit id="filter-categories">
+                <source>Category</source>
+            </trans-unit>
+            <trans-unit id="filter-languages">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="sort-label">
+                <source>Sorting</source>
+            </trans-unit>
+            <trans-unit id="sort-new">
+                <source>Latest first</source>
+            </trans-unit>
+            <trans-unit id="sort-title">
+                <source>by title</source>
+            </trans-unit>
+            <trans-unit id="sort-random">
+                <source>random</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

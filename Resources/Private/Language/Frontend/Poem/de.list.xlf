@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file datatype="plaintext" date="2019-05-25T13:02:00+01:00" original="messages" product-name="psb_poems" source-language="en" target-language="de">
+        <header />
+        <body>
+            <trans-unit id="by-with-space">
+                <source>by</source>
+                <target>von</target>
+            </trans-unit>
+            <trans-unit id="and-with-spaces">
+                <source>and</source>
+                <target>und</target>
+            </trans-unit>
+            <trans-unit id="comma-with-space">
+                <source>,</source>
+                <target>,</target>
+            </trans-unit>
+            <trans-unit id="back-to-list">
+                <source>Back to list</source>
+                <target>Zurück zur Übersicht</target>
+            </trans-unit>
+            <trans-unit id="filter-all">
+                <source>All</source>
+                <target>Alle</target>
+            </trans-unit>
+            <trans-unit id="filter-authors">
+                <source>Author</source>
+                <target>Autor</target>
+            </trans-unit>
+            <trans-unit id="filter-categories">
+                <source>Category</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="filter-languages">
+                <source>Language</source>
+                <target>Sprache</target>
+            </trans-unit>
+            <trans-unit id="sort-label">
+                <source>Sorting</source>
+                <target>Sortierung</target>
+            </trans-unit>
+            <trans-unit id="sort-new">
+                <source>Latest first</source>
+                <target>Neueste zuerst</target>
+            </trans-unit>
+            <trans-unit id="sort-title">
+                <source>by title</source>
+                <target>nach Titel</target>
+            </trans-unit>
+            <trans-unit id="sort-random">
+                <source>random</source>
+                <target>zufällig</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
