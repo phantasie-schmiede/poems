@@ -10,5 +10,5 @@ call_user_func(
             'LLL:EXT:'.$extensionKey.'/Resources/Private/Language/Backend/Configuration/TCA/Overrides/tt_content.xlf:plugin.poems.title'
         );
     },
-    'psb_poems'
+    \PSB\PsbPoems\Data\ExtensionInformation::EXTENSION_KEY
 );

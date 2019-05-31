@@ -42,6 +42,8 @@ class PoemController extends ActionController
 {
     use InjectionTrait;
 
+    public const CONTROLLER_NAME = 'Poem';
+
     public function listAction(): void
     {
         $authors = $this->get(AuthorRepository::class)->findAll();
