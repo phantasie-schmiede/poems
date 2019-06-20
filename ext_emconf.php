@@ -2,7 +2,7 @@
 /** @noinspection PhpFullyQualifiedNameUsageInspection */
 declare(strict_types=1);
 
-$EM_CONF[\PSB\PsbPoems\Data\ExtensionInformation::EXTENSION_KEY] = [
+$EM_CONF['psb_poems'] = [
     'author'       => 'Daniel Ablass',
     'author_email' => 'dn@phantasie-schmiede.de',
     'category'     => 'plugin',

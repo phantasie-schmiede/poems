@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace PSB\PsbPoems\Data;
 
+use PSB\PsbFoundation\Data\AbstractExtensionInformation;
+use PSB\PsbPoems\Controller\PoemController;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -31,8 +34,9 @@ namespace PSB\PsbPoems\Data;
  * Class ExtensionInformation
  * @package PSB\PsbPoems\Data
  */
-class ExtensionInformation
+class ExtensionInformation extends AbstractExtensionInformation
 {
-    public const EXTENSION_KEY = 'psb_poems';
-    public const VENDOR_NAME = 'PSB';
+    public const PLUGINS = [
+        'poems' => [PoemController::class],
+    ];
 }

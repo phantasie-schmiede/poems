@@ -3,5 +3,6 @@
 defined('TYPO3_MODE') or die();
 
 (static function () {
-    \PSB\PsbFoundation\Utilities\TypoScriptUtility::registerTypoScript(\PSB\PsbPoems\Data\ExtensionInformation::EXTENSION_KEY);
+    $extensionInformation = \PSB\PsbFoundation\Utilities\ObjectUtility::get(\PSB\PsbPoems\Data\ExtensionInformation::class);
+    \PSB\PsbFoundation\Utilities\TypoScriptUtility::registerTypoScript($extensionInformation);
 })();
