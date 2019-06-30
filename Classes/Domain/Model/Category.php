@@ -27,13 +27,13 @@ namespace PSB\PsbPoems\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use PSB\PsbFoundation\Domain\Model\ModelWithName;
+use PSB\PsbFoundation\Domain\Model\AbstractModelWithName;
 
 /**
  * Class Category
  * @package                      PSB\PsbPoems\Domain\Model
  * @PSB\PsbFoundation\Tca\Config label=name; searchFields=name;
  */
-class Category extends ModelWithName
+class Category extends AbstractModelWithName
 {
 }
