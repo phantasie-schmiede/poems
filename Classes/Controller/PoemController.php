@@ -27,7 +27,6 @@ namespace PSB\PsbPoems\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use PSB\PsbFoundation\Traits\InjectionTrait;
 use PSB\PsbPoems\Domain\Repository\AuthorRepository;
 use PSB\PsbPoems\Domain\Repository\CategoryRepository;
 use PSB\PsbPoems\Domain\Repository\LanguageRepository;
@@ -40,22 +39,20 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class PoemController extends ActionController
 {
-    use InjectionTrait;
-
     public const CONTROLLER_NAME = 'Poem';
 
     public function listAction(): void
     {
-        $authors = $this->get(AuthorRepository::class)->findAll();
-        $categories = $this->get(CategoryRepository::class)->findAll();
-        $languages = $this->get(LanguageRepository::class)->findAll();
-        $poems = $this->get(PoemRepository::class)->findAll();
-
-        $this->view->assignMultiple([
-            'authors'    => $authors,
-            'categories' => $categories,
-            'languages'  => $languages,
-            'poems'      => $poems,
-        ]);
+//        $authors = $this->get(AuthorRepository::class)->findAll();
+//        $categories = $this->get(CategoryRepository::class)->findAll();
+//        $languages = $this->get(LanguageRepository::class)->findAll();
+//        $poems = $this->get(PoemRepository::class)->findAll();
+//
+//        $this->view->assignMultiple([
+//            'authors'    => $authors,
+//            'categories' => $categories,
+//            'languages'  => $languages,
+//            'poems'      => $poems,
+//        ]);
     }
 }
