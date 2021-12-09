@@ -32,7 +32,7 @@ use PSB\PsbFoundation\Domain\Model\AbstractModelWithName;
 /**
  * Class Author
  * @package                      PSB\PsbPoems\Domain\Model
- * @PSB\PsbFoundation\Tca\Config label=name; searchFields=name;
+ * @\PSB\PsbFoundation\Annotation\Tca\Ctrl(label="name", searchFields="name")
  */
 class Author extends AbstractModelWithName
 {

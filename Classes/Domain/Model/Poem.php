@@ -27,55 +27,52 @@ namespace PSB\PsbPoems\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use PSB\PsbFoundation\Utilities\ObjectUtility;
+use PSB\PsbFoundation\Annotation\Tca;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Class Poem
  * @package                      PSB\PsbPoems\Domain\Model
- * @PSB\PsbFoundation\Tca\Config label=title; searchFields=title,text;
+ * @Tca\Ctrl(label="title", searchFields="title, text")
  */
 class Poem extends AbstractEntity
 {
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\PSB\PsbPoems\Domain\Model\Author>
-     * @PSB\PsbFoundation\Tca\FieldConfig type=mm; foreign_table=tx_psbpoems_domain_model_author;
-     *                                    mm=tx_psbpoems_poem_author_mm;
+     * @var ObjectStorage<Author>
+     * @Tca\Mm(linkedModel=Author::class, mm="tx_psbpoems_poem_author_mm")
      */
     protected $authors;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\PSB\PsbPoems\Domain\Model\Category>
-     * @PSB\PsbFoundation\Tca\FieldConfig type=mm; foreign_table=tx_psbpoems_domain_model_category;
-     *                                    mm=tx_psbpoems_poem_category_mm;
+     * @var ObjectStorage<Category>
+     * @Tca\Mm(linkedModel=Category::class, mm="tx_psbpoems_poem_category_mm")
      */
     protected $categories;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\PSB\PsbPoems\Domain\Model\Language>
-     * @PSB\PsbFoundation\Tca\FieldConfig type=mm; foreign_table=tx_psbpoems_domain_model_language;
-     *                                    mm=tx_psbpoems_poem_language_mm;
+     * @var ObjectStorage<Language>
+     * @Tca\Mm(linkedModel=Language::class, mm="tx_psbpoems_poem_language_mm")
      */
     protected $languages;
 
     /**
      * @var string
-     * @PSB\PsbFoundation\Tca\FieldConfig type=text
+     * @TCA\Text()
      */
-    protected $text;
+    protected $text = '';
 
     /**
      * @var string
-     * @PSB\PsbFoundation\Tca\FieldConfig type=string
+     * @TCA\Input()
      */
-    protected $title;
+    protected $title = '';
 
     public function __construct()
     {
-        $this->authors = ObjectUtility::get(ObjectStorage::class);
-        $this->categories = ObjectUtility::get(ObjectStorage::class);
-        $this->languages = ObjectUtility::get(ObjectStorage::class);
+        $this->authors = new ObjectStorage();
+        $this->categories = new ObjectStorage();
+        $this->languages = new ObjectStorage();
     }
 
     /**
