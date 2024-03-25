@@ -10,7 +10,7 @@ $EM_CONF['psb_poems'] = [
         'conflicts' => [
         ],
         'depends'   => [
-            'psb_foundation' => '1.0.0',
+            'psb_foundation' => '^2',
         ],
         'suggests'  => [
         ],
@@ -18,5 +18,5 @@ $EM_CONF['psb_poems'] = [
     'description'      => 'Manage and display poems',
     'state'            => 'beta',
     'title'            => 'PSbits | Poems',
-    'version'          => '3.0.0',
+    'version'          => '0.0.0',
 ];

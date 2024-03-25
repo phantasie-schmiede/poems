@@ -37,7 +37,7 @@
     "license": "GPL-2.0-or-later",
     "name": "psb/psb-poems",
     "require": {
-        "psb/psb-foundation": "@dev"
+        "psb/psb-foundation": "^2"
     },
     "require-dev": {
         "typo3/testing-framework": "^6.8"
