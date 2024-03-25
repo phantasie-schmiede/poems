@@ -3,80 +3,62 @@ declare(strict_types=1);
 
 namespace PSB\PsbPoems\Domain\Model;
 
-/***************************************************************
- *  Copyright notice
+/*
+ * This file is part of PSB Poems.
  *
- *  (c) 2014-2019 Daniel Ablass <dn@phantasie-schmiede.de>, PSbits
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ */
 
-use PSB\PsbFoundation\Annotation\Tca;
+use PSB\PsbFoundation\Attribute\TCA\ColumnType\Input;
+use PSB\PsbFoundation\Attribute\TCA\ColumnType\Select;
+use PSB\PsbFoundation\Attribute\TCA\ColumnType\Text;
+use PSB\PsbFoundation\Attribute\TCA\Ctrl;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Class Poem
- * @package                      PSB\PsbPoems\Domain\Model
- * @Tca\Ctrl(label="title", searchFields="title, text")
+ *
+ * @package PSB\PsbPoems\Domain\Model
  */
+#[Ctrl(label: 'title', searchFields: [
+    'text',
+    'title',
+])]
 class Poem extends AbstractEntity
 {
     /**
      * @var ObjectStorage<Author>
-     * @Tca\Mm(linkedModel=Author::class, mm="tx_psbpoems_poem_author_mm")
      */
-    protected $authors;
+    #[Select(linkedModel: Author::class, mm: 'tx_psbpoems_poem_author_mm')]
+    protected ObjectStorage $authors;
 
     /**
      * @var ObjectStorage<Category>
-     * @Tca\Mm(linkedModel=Category::class, mm="tx_psbpoems_poem_category_mm")
      */
-    protected $categories;
+    #[Select(linkedModel: Category::class, mm: 'tx_psbpoems_poem_category_mm')]
+    protected ObjectStorage $categories;
 
     /**
      * @var ObjectStorage<Language>
-     * @Tca\Mm(linkedModel=Language::class, mm="tx_psbpoems_poem_language_mm")
      */
-    protected $languages;
+    #[Select(linkedModel: Language::class, mm: 'tx_psbpoems_poem_language_mm')]
+    protected ObjectStorage $languages;
 
-    /**
-     * @var string
-     * @TCA\Text()
-     */
-    protected $text = '';
+    #[Text]
+    protected string $text = '';
 
-    /**
-     * @var string
-     * @TCA\Input()
-     */
-    protected $title = '';
+    #[Input]
+    protected string $title = '';
 
     public function __construct()
     {
-        $this->authors = new ObjectStorage();
-        $this->categories = new ObjectStorage();
-        $this->languages = new ObjectStorage();
+        $this->initializeObject();
     }
 
     /**
-     * @return ObjectStorage
+     * @return ObjectStorage<Author>
      */
     public function getAuthors(): ObjectStorage
     {
@@ -84,15 +66,7 @@ class Poem extends AbstractEntity
     }
 
     /**
-     * @param ObjectStorage $authors
-     */
-    public function setAuthors(ObjectStorage $authors): void
-    {
-        $this->authors = $authors;
-    }
-
-    /**
-     * @return ObjectStorage
+     * @return ObjectStorage<Category>
      */
     public function getCategories(): ObjectStorage
     {
@@ -100,27 +74,11 @@ class Poem extends AbstractEntity
     }
 
     /**
-     * @param ObjectStorage $categories
-     */
-    public function setCategories(ObjectStorage $categories): void
-    {
-        $this->categories = $categories;
-    }
-
-    /**
-     * @return ObjectStorage
+     * @return ObjectStorage<Language>
      */
     public function getLanguages(): ObjectStorage
     {
         return $this->languages;
-    }
-
-    /**
-     * @param ObjectStorage $languages
-     */
-    public function setLanguages(ObjectStorage $languages): void
-    {
-        $this->languages = $languages;
     }
 
     /**
@@ -132,19 +90,50 @@ class Poem extends AbstractEntity
     }
 
     /**
-     * @param string $text
-     */
-    public function setText(string $text): void
-    {
-        $this->text = $text;
-    }
-
-    /**
      * @return string
      */
     public function getTitle(): string
     {
         return $this->title;
+    }
+
+    public function initializeObject(): void
+    {
+        $this->authors = new ObjectStorage();
+        $this->categories = new ObjectStorage();
+        $this->languages = new ObjectStorage();
+    }
+
+    /**
+     * @param ObjectStorage<Author> $authors
+     */
+    public function setAuthors(ObjectStorage $authors): void
+    {
+        $this->authors = $authors;
+    }
+
+    /**
+     * @param ObjectStorage<Category> $categories
+     */
+    public function setCategories(ObjectStorage $categories): void
+    {
+        $this->categories = $categories;
+    }
+
+    /**
+     * @param ObjectStorage<Language> $languages
+     */
+    public function setLanguages(ObjectStorage $languages): void
+    {
+        $this->languages = $languages;
+    }
+
+    /**
+     * @param string $text
+     */
+    public function setText(string $text): void
+    {
+        $this->text = $text;
     }
 
     /**

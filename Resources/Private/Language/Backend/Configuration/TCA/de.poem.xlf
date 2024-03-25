@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-    <file datatype="plaintext" date="2019-05-25T12:03:00+01:00" original="messages" product-name="psb_poems" source-language="en">
+    <file datatype="plaintext"
+        date="2019-05-25T12:05:00+01:00"
+        original="messages"
+        product-name="psb_poems"
+        source-language="en"
+        target-language="de">
         <header />
         <body>
             <trans-unit id="authors">
                 <source>Authors</source>
+                <target>Verfasser</target>
             </trans-unit>
             <trans-unit id="categories">
                 <source>Categories</source>
+                <target>Kategorien</target>
             </trans-unit>
-            <trans-unit id="domain.model">
+            <trans-unit id="ctrl.title">
                 <source>Poem</source>
+                <target>Gedicht</target>
             </trans-unit>
             <trans-unit id="languages">
                 <source>Languages</source>
+                <target>Sprachen</target>
             </trans-unit>
             <trans-unit id="text">
                 <source>Text</source>
+                <target>Text</target>
             </trans-unit>
             <trans-unit id="title">
                 <source>Title</source>
+                <target>Titel</target>
             </trans-unit>
         </body>
     </file>

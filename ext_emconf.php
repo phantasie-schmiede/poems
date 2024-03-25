@@ -7,13 +7,11 @@ $EM_CONF['psb_poems'] = [
     'category'         => 'plugin',
     'clearCacheOnLoad' => true,
     'constraints'      => [
-        'conflicts' => [
-        ],
+        'conflicts' => [],
         'depends'   => [
             'psb_foundation' => '^2',
         ],
-        'suggests'  => [
-        ],
+        'suggests'  => [],
     ],
     'description'      => 'Manage and display poems',
     'state'            => 'beta',

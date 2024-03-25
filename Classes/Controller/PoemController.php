@@ -3,56 +3,51 @@ declare(strict_types=1);
 
 namespace PSB\PsbPoems\Controller;
 
-/***************************************************************
- *  Copyright notice
+/*
+ * This file is part of PSB Poems.
  *
- *  (c) 2014-2019 Daniel Ablass <dn@phantasie-schmiede.de>, PSbits
- *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ */
 
+use PSB\PsbFoundation\Attribute\PluginAction;
 use PSB\PsbPoems\Domain\Repository\AuthorRepository;
 use PSB\PsbPoems\Domain\Repository\CategoryRepository;
 use PSB\PsbPoems\Domain\Repository\LanguageRepository;
 use PSB\PsbPoems\Domain\Repository\PoemRepository;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Class PoemController
+ *
  * @package PSB\PsbPoems\Controller
  */
 class PoemController extends ActionController
 {
-    public const CONTROLLER_NAME = 'Poem';
+    public function __construct(
+        protected readonly AuthorRepository   $authorRepository,
+        protected readonly CategoryRepository $categoryRepository,
+        protected readonly LanguageRepository $languageRepository,
+        protected readonly PoemRepository     $poemRepository,
+    ) {
+    }
 
-    public function listAction(): void
+    #[PluginAction(default: true)]
+    public function listAction(): ResponseInterface
     {
-//        $authors = $this->get(AuthorRepository::class)->findAll();
-//        $categories = $this->get(CategoryRepository::class)->findAll();
-//        $languages = $this->get(LanguageRepository::class)->findAll();
-//        $poems = $this->get(PoemRepository::class)->findAll();
-//
-//        $this->view->assignMultiple([
-//            'authors'    => $authors,
-//            'categories' => $categories,
-//            'languages'  => $languages,
-//            'poems'      => $poems,
-//        ]);
+        $authors = $this->authorRepository->findAll();
+        $categories = $this->categoryRepository->findAll();
+        $languages = $this->languageRepository->findAll();
+        $poems = $this->poemRepository->findAll();
+
+        $this->view->assignMultiple([
+            'authors'    => $authors,
+            'categories' => $categories,
+            'languages'  => $languages,
+            'poems'      => $poems,
+        ]);
+
+        return $this->htmlResponse();
     }
 }

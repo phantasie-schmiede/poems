@@ -1,71 +1,14 @@
-<html data-namespace-typo3-fluid="true"
-      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-      xmlns:psb="http://typo3.org/ns/PSB/PsbFoundation/ViewHelpers">
-<div class="row text-center">
-    <div class="col-xs-12 col-md-offset-2 col-md-8">
-        <div class="filter_box">
-            <h4>
-                <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:filter-authors" />
-            </h4>
-            <div class="filter btn-group" data-filter-group="authors">
-                <a href="#filter-authors-any" data-filter="*" class="btn btn-default active">
-                    <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:filter-all" />
-                </a>
-                <f:for each="{authors}" as="author">
-                    <a href="#filter-authors-{author.name}" data-filter-value=".{author.name}" class="btn btn-default">{author.name}</a>
-                </f:for>
-            </div>
-        </div>
-        <div class="filter_box">
-            <h4>
-                <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:filter-languages" />
-            </h4>
-            <div class="filter btn-group" data-filter-group="languages">
-                <a href="#filter-languages-any" data-filter="*" class="btn btn-default active">
-                    <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:filter-all" />
-                </a>
-                <f:for each="{languages}" as="language">
-                    <a href="#filter-languages-{language.name}" data-filter-value=".{language.name}" class="btn btn-default">{language.name}</a>
-                </f:for>
-            </div>
-        </div>
-        <div class="filter_box">
-            <h4>
-                <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:sort-label" />
-            </h4>
-            <div class="sort-by btn-group">
-                <a href="#sort-original-order" class="btn btn-default active">
-                    <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:sort-new" />
-                </a>
-                <a href="#sort-title" class="btn btn-default">
-                    <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:sort-title" />
-                </a>
-                <a href="#sort-random" class="btn btn-default sort_random">
-                    <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:sort-random" />
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-md-offset-2 col-md-8">
-        <div class="filter_box">
-            <h4>
-                <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:filter-categories" />
-            </h4>
-            <div class="filter btn-group" data-filter-group="categories">
-                <a href="#filter-categories-any" data-filter="*" class="btn btn-default active">
-                    <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:filter-all" />
-                </a>
-                <f:for each="{categories}" as="category">
-                    <a href="#filter-categories-{category.name}" data-filter-value=".{category.name}" class="btn btn-default">{category.name}</a>
-                </f:for>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="isotope-content">
-    <f:for each="{poems}" as="poem">
-        <div class="item poem col-xs-12 col-sm-6 col-md-4 col-lg-3
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:psb="http://typo3.org/ns/PSB/PsbFoundation/ViewHelpers">
+<div class="row">
+    <div class="col isotope-content">
+        <f:for
+            as="poem"
+            each="{poems}">
+            <div
+                class="card isotope-item
             <f:for each='{poem.authors}' as='author'>
                 {author.name}
             </f:for>
@@ -74,41 +17,47 @@
             </f:for>
             <f:for each='{poem.categories}' as='category'>
                 {category.name}
-            </f:for>
-        ">
-            <button type="button" class="btn btn-default btn-block" data-toggle="collapse" data-target="#poem_{poem.uid}">
-                <span class="poem_title">{poem.title}</span>
-            </button>
-            <div id="poem_{poem.uid}" class="collapse text-center">
-                <div class="poem_body">
-                    <p class="authors">
-                        <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:by-with-space" />
-                        <f:for each="{poem.authors}" as="author" iteration="iterator">
+            </f:for>">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {poem.title}
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                        <psb:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:by-with-space" />
+                        <f:for
+                            as="author"
+                            each="{poem.authors}"
+                            iteration="iterator">
                             <f:if condition="{iterator.isLast}">
                                 <f:then>
                                     {author.name}
                                 </f:then>
                                 <f:else>
-                                    <f:if condition="{iterator.cycle} == {psb:math(a: '{iterator.total}', b: '1', operator: '-')}">
+                                    <f:if condition="{iterator.cycle} == {iterator.total - 1}">
                                         <f:then>
                                             {author.name}
-                                            <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:and-with-spaces" />
+                                            <psb:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:and-with-spaces" />
                                         </f:then>
                                         <f:else>
                                             {author.name}
-                                            <f:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:comma-with-space" />
+                                            <psb:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:comma-with-space" />
                                         </f:else>
                                     </f:if>
                                 </f:else>
                             </f:if>
                         </f:for>
-                    </p>
-                    <div class="poem_text">
+                    </h6>
+                    <p class="card-text text-center">
                         <f:format.html>{poem.text}</f:format.html>
-                    </div>
+                    </p>
                 </div>
             </div>
-        </div>
-    </f:for>
+        </f:for>
+    </div>
 </div>
+
+<f:section name="FooterAssets">
+    <f:asset.script identifier="isotope" src="EXT:psb_poems/Resources/Public/JavaScript/Vendors/isotope.min.js" />
+    <f:asset.script identifier="psb-poems" src="EXT:psb_poems/Resources/Public/JavaScript/app.js" />
+</f:section>
 </html>
