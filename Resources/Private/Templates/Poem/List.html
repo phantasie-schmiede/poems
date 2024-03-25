@@ -2,22 +2,23 @@
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     xmlns:psb="http://typo3.org/ns/PSB/PsbFoundation/ViewHelpers">
-<div class="row">
-    <div class="col isotope-content">
-        <f:for
-            as="poem"
-            each="{poems}">
+<div class="gx-2 isotope-content row text-center">
+    <div class="col-lg-4 col-md-6 col-sm-12 isotope-sizer"></div>
+    <f:for
+        as="poem"
+        each="{poems}">
+        <div class="col-lg-4 col-md-6 col-sm-12 isotope-item">
             <div
-                class="card isotope-item
-            <f:for each='{poem.authors}' as='author'>
-                {author.name}
-            </f:for>
-            <f:for each='{poem.languages}' as='language'>
-                {language.name}
-            </f:for>
-            <f:for each='{poem.categories}' as='category'>
-                {category.name}
-            </f:for>">
+                class="card mb-2
+    <f:for each='{poem.authors}' as='author'>
+        {author.name}
+    </f:for>
+    <f:for each='{poem.languages}' as='language'>
+        {language.name}
+    </f:for>
+    <f:for each='{poem.categories}' as='category'>
+        {category.name}
+    </f:for>">
                 <div class="card-body">
                     <h5 class="card-title">
                         {poem.title}
@@ -47,13 +48,13 @@
                             </f:if>
                         </f:for>
                     </h6>
-                    <p class="card-text text-center">
+                    <div class="card-text">
                         <f:format.html>{poem.text}</f:format.html>
-                    </p>
+                    </div>
                 </div>
             </div>
-        </f:for>
-    </div>
+        </div>
+    </f:for>
 </div>
 
 <f:section name="FooterAssets">
