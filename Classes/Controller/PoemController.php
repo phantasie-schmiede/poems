@@ -33,13 +33,15 @@ class PoemController extends ActionController
     ) {
     }
 
-    #[PluginAction(default: true)]
+    #[PluginAction(default: true, uncached: true)]
     public function listAction(): ResponseInterface
     {
         $authors = $this->authorRepository->findAll();
         $categories = $this->categoryRepository->findAll();
         $languages = $this->languageRepository->findAll();
-        $poems = $this->poemRepository->findAll();
+        $poems = $this->poemRepository->findAll()->toArray();
+
+        shuffle($poems);
 
         $this->view->assignMultiple([
             'authors'    => $authors,
