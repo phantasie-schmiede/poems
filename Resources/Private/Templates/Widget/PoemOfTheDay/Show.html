@@ -1,0 +1,49 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:psb="http://typo3.org/ns/PSB/PsbFoundation/ViewHelpers">
+<psb:translation.registerLanguageFile file="EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf" />
+
+<div class="row text-center">
+    <div class="col">
+        <h4>
+            <psb:translate id="headline" />
+        </h4>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {poem.title}
+                </h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                    <psb:translate id="list:by-with-space" />
+                    <f:for
+                        as="author"
+                        each="{poem.authors}"
+                        iteration="iterator">
+                        <f:if condition="{iterator.isLast}">
+                            <f:then>
+                                {author.name}
+                            </f:then>
+                            <f:else>
+                                <f:if condition="{iterator.cycle} == {iterator.total - 1}">
+                                    <f:then>
+                                        {author.name}
+                                        <psb:translate id="list:and-with-spaces" />
+                                    </f:then>
+                                    <f:else>
+                                        {author.name}
+                                        <psb:translate id="list:comma-with-space" />
+                                    </f:else>
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                    </f:for>
+                </h6>
+                <div class="card-text">
+                    <f:format.html>{poem.text}</f:format.html>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

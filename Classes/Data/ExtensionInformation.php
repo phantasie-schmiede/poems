@@ -6,6 +6,7 @@ namespace PSB\PsbPoems\Data;
 use PSB\PsbFoundation\Data\AbstractExtensionInformation;
 use PSB\PsbFoundation\Data\PluginConfiguration;
 use PSB\PsbPoems\Controller\PoemController;
+use PSB\PsbPoems\Controller\Widget\PoemOfTheDayController;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /*
@@ -25,6 +26,15 @@ class ExtensionInformation extends AbstractExtensionInformation
     public function __construct()
     {
         parent::__construct();
+        $this->addPlugin(
+            GeneralUtility::makeInstance(
+                PluginConfiguration::class,
+                controllers: [
+                    PoemOfTheDayController::class,
+                ],
+                name       : 'PoemOfTheDay',
+            )
+        );
         $this->addPlugin(
             GeneralUtility::makeInstance(
                 PluginConfiguration::class,

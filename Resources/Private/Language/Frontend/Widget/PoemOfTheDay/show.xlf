@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file datatype="plaintext"
+        date="2024-03-27T17:07:00+01:00"
+        original="messages"
+        product-name="psb_poems"
+        source-language="en">
+        <header />
+        <body>
+            <trans-unit id="headline">
+                <source>Poem of the day</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
