@@ -12,6 +12,10 @@
                 <source>Poem of the day</source>
                 <target>Gedicht des Tages</target>
             </trans-unit>
+            <trans-unit id="morePoems">
+                <source>More poems</source>
+                <target>Weitere Gedichte</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -7,6 +7,9 @@
         source-language="en">
         <header />
         <body>
+            <trans-unit id="plugin.poemOfTheDay.title">
+                <source>Poem of the day</source>
+            </trans-unit>
             <trans-unit id="plugin.poems.title">
                 <source>Poems</source>
             </trans-unit>

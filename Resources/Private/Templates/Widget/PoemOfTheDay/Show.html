@@ -42,6 +42,14 @@
                 <div class="card-text">
                     <f:format.html>{poem.text}</f:format.html>
                 </div>
+
+                <f:if condition="{settings.listPage}">
+                    <f:link.page
+                        class="btn btn-secondary mt-2"
+                        pageUid="{settings.listPage}">
+                        <psb:translate id="morePoems" />
+                    </f:link.page>
+                </f:if>
             </div>
         </div>
     </div>
