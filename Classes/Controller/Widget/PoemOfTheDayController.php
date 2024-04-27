@@ -16,7 +16,6 @@ use PSB\PsbPoems\Domain\Model\Poem;
 use PSB\PsbPoems\Domain\Repository\PoemRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use function count;
 
 /**
  * Class PoemController
@@ -47,21 +46,19 @@ class PoemOfTheDayController extends ActionController
         $base = new DateTime('2024-01-01');
         $diff = $now->diff($base);
 
-        return (int)$diff->format('%a'); // 735330 days
+        return (int)$diff->format('%a');
     }
 
     private function getPoemOfTheDay(): ?Poem
     {
-        $poems = $this->poemRepository->findAll()
-            ->toArray();
-        $count = count($poems);
+        $numberOfPoems = $this->poemRepository->countAll();
 
-        if (0 === $count) {
+        if (0 === $numberOfPoems) {
             return null;
         }
 
-        $index = $this->getNumberOfDays() % count($poems);
+        $offset = $this->getNumberOfDays() % $numberOfPoems;
 
-        return $poems[$index];
+        return $this->poemRepository->getPoemOfTheDay($offset);
     }
 }
