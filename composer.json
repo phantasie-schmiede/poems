@@ -40,7 +40,7 @@
         "psb/psb-foundation": "^2"
     },
     "require-dev": {
-        "typo3/testing-framework": "^6.8"
+        "typo3/testing-framework": "^8.0.9"
     },
     "type": "typo3-cms-extension"
 }
