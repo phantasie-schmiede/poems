@@ -1,9 +1,9 @@
-plugin.tx_psbpoems {
-    persistence.storagePid = {$plugin.tx_psbpoems.persistence.storagePid}
+plugin.tx_poems {
+    persistence.storagePid = {$plugin.tx_poems.persistence.storagePid}
 
     view {
-        layoutRootPaths.0 = {$plugin.tx_psbpoems.view.layoutRootPath}
-        partialRootPaths.0 = {$plugin.tx_psbpoems.view.partialRootPath}
-        templateRootPaths.0 = {$plugin.tx_psbpoems.view.templateRootPath}
+        layoutRootPaths.0 = {$plugin.tx_poems.view.layoutRootPath}
+        partialRootPaths.0 = {$plugin.tx_poems.view.partialRootPath}
+        templateRootPaths.0 = {$plugin.tx_poems.view.templateRootPath}
     }
 }

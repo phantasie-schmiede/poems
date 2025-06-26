@@ -1,26 +1,26 @@
 <?php
 declare(strict_types=1);
 
-namespace PSB\PsbPoems\Domain\Model;
+namespace PSBits\Poems\Domain\Model;
 
 /*
- * This file is part of PSB Poems.
+ * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
 
-use PSB\PsbFoundation\Attribute\TCA\ColumnType\Input;
-use PSB\PsbFoundation\Attribute\TCA\ColumnType\Select;
-use PSB\PsbFoundation\Attribute\TCA\ColumnType\Text;
-use PSB\PsbFoundation\Attribute\TCA\Ctrl;
+use PSBits\Foundation\Attribute\TCA\ColumnType\Input;
+use PSBits\Foundation\Attribute\TCA\ColumnType\Select;
+use PSBits\Foundation\Attribute\TCA\ColumnType\Text;
+use PSBits\Foundation\Attribute\TCA\Ctrl;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Class Poem
  *
- * @package PSB\PsbPoems\Domain\Model
+ * @package PSBits\Poems\Domain\Model
  */
 #[Ctrl(label: 'title', searchFields: [
     'text',
@@ -31,19 +31,19 @@ class Poem extends AbstractEntity
     /**
      * @var ObjectStorage<Author>
      */
-    #[Select(linkedModel: Author::class, mm: 'tx_psbpoems_poem_author_mm')]
+    #[Select(linkedModel: Author::class, mm: 'tx_poems_poem_author_mm')]
     protected ObjectStorage $authors;
 
     /**
      * @var ObjectStorage<Category>
      */
-    #[Select(linkedModel: Category::class, mm: 'tx_psbpoems_poem_category_mm')]
+    #[Select(linkedModel: Category::class, mm: 'tx_poems_poem_category_mm')]
     protected ObjectStorage $categories;
 
     /**
      * @var ObjectStorage<Language>
      */
-    #[Select(linkedModel: Language::class, mm: 'tx_psbpoems_poem_language_mm')]
+    #[Select(linkedModel: Language::class, mm: 'tx_poems_poem_language_mm')]
     protected ObjectStorage $languages;
 
     #[Text]

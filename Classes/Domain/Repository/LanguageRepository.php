@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace PSB\PsbPoems\Domain\Repository;
+namespace PSBits\Poems\Domain\Repository;
 
 /*
- * This file is part of PSB Poems.
+ * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -15,7 +15,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Class LanguageRepository
- * @package PSB\PsbPoems\Domain\Repository
+ * @package PSBits\Poems\Domain\Repository
  */
 class LanguageRepository extends Repository
 {

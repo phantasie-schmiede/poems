@@ -1,27 +1,27 @@
 <?php
 declare(strict_types=1);
 
-namespace PSB\PsbPoems\Controller;
+namespace PSBits\Poems\Controller;
 
 /*
- * This file is part of PSB Poems.
+ * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
 
-use PSB\PsbFoundation\Attribute\PluginAction;
-use PSB\PsbPoems\Domain\Repository\AuthorRepository;
-use PSB\PsbPoems\Domain\Repository\CategoryRepository;
-use PSB\PsbPoems\Domain\Repository\LanguageRepository;
-use PSB\PsbPoems\Domain\Repository\PoemRepository;
+use PSBits\Foundation\Attribute\PluginAction;
+use PSBits\Poems\Domain\Repository\AuthorRepository;
+use PSBits\Poems\Domain\Repository\CategoryRepository;
+use PSBits\Poems\Domain\Repository\LanguageRepository;
+use PSBits\Poems\Domain\Repository\PoemRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Class PoemController
  *
- * @package PSB\PsbPoems\Controller
+ * @package PSBits\Poems\Controller
  */
 class PoemController extends ActionController
 {

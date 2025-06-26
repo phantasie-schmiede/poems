@@ -1,15 +1,15 @@
-plugin.tx_psbpoems {
-    # cat=plugin.tx_psbpoems//a; type=int+; label=Default storage PID
+plugin.tx_poems {
+    # cat=plugin.tx_poems//a; type=int+; label=Default storage PID
     persistence.storagePid =
 
     view {
-        # cat=plugin.tx_psbpoems/file; type=string; label=Path to template layouts (FE)
-        layoutRootPath = EXT:psb_poems/Resources/Private/Layouts/
+        # cat=plugin.tx_poems/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:poems/Resources/Private/Layouts/
 
-        # cat=plugin.tx_psbpoems/file; type=string; label=Path to template partials (FE)
-        partialRootPath = EXT:psb_poems/Resources/Private/Partials/
+        # cat=plugin.tx_poems/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:poems/Resources/Private/Partials/
 
-        # cat=plugin.tx_psbpoems/file; type=string; label=Path to template root (FE)
-        templateRootPath = EXT:psb_poems/Resources/Private/Templates/
+        # cat=plugin.tx_poems/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:poems/Resources/Private/Templates/
     }
 }

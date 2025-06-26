@@ -8,12 +8,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "PSB\\PsbPoems\\": "Classes/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "PSB\\PsbPoems\\Tests\\": "Tests/"
+            "PSBits\\Poems\\": "Classes/"
         }
     },
     "config": {
@@ -24,9 +19,8 @@
     "description": "Manage and display poems",
     "extra": {
         "typo3/cms": {
-            "app-dir": ".Build",
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "extension-key": "psb_poems",
+            "extension-key": "poems",
             "web-dir": ".Build/public"
         }
     },
@@ -35,9 +29,9 @@
         "typo3"
     ],
     "license": "GPL-3.0-or-later",
-    "name": "psb/psb-poems",
+    "name": "psbits/poems",
     "require": {
-        "psb/psb-foundation": "^2"
+        "psbits/foundation": "^3.0"
     },
     "require-dev": {
         "typo3/testing-framework": "^8.0.9"

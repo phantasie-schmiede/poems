@@ -1,23 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace PSB\PsbPoems\Domain\Repository;
+namespace PSBits\Poems\Domain\Repository;
 
 /*
- * This file is part of PSB Poems.
+ * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
 
-use PSB\PsbPoems\Domain\Model\Poem;
+use PSBits\Poems\Domain\Model\Poem;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Class PoemRepository
  *
- * @package PSB\PsbPoems\Domain\Repository
+ * @package PSBits\Poems\Domain\Repository
  */
 class PoemRepository extends Repository
 {

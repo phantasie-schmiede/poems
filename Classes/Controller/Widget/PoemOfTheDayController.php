@@ -1,26 +1,26 @@
 <?php
 declare(strict_types=1);
 
-namespace PSB\PsbPoems\Controller\Widget;
+namespace PSBits\Poems\Controller\Widget;
 
 /*
- * This file is part of PSB Poems.
+ * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
 
 use DateTime;
-use PSB\PsbFoundation\Attribute\PluginAction;
-use PSB\PsbPoems\Domain\Model\Poem;
-use PSB\PsbPoems\Domain\Repository\PoemRepository;
+use PSBits\Foundation\Attribute\PluginAction;
+use PSBits\Poems\Domain\Model\Poem;
+use PSBits\Poems\Domain\Repository\PoemRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Class PoemController
  *
- * @package PSB\PsbPoems\Controller\Widget
+ * @package PSBits\Poems\Controller\Widget
  */
 class PoemOfTheDayController extends ActionController
 {

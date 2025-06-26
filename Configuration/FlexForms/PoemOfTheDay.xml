@@ -7,13 +7,13 @@
         <sDEF>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>LLL:EXT:psb_poems/Resources/Private/Language/Backend/Configuration/FlexForms/poemOfTheDay.xlf:tab.general</sheetTitle>
+                    <sheetTitle>LLL:EXT:poems/Resources/Private/Language/Backend/Configuration/FlexForms/poemOfTheDay.xlf:tab.general</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>
                     <settings.listPage>
                         <TCEforms>
-                            <label>LLL:EXT:psb_poems/Resources/Private/Language/Backend/Configuration/FlexForms/poemOfTheDay.xlf:settings.listPage</label>
+                            <label>LLL:EXT:poems/Resources/Private/Language/Backend/Configuration/FlexForms/poemOfTheDay.xlf:settings.listPage</label>
                             <config>
                                 <type>group</type>
                                 <internal_type>db</internal_type>

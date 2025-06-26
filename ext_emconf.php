@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-$EM_CONF['psb_poems'] = [
+$EM_CONF['poems'] = [
     'author'           => 'Daniel Ablass',
     'author_email'     => 'dn@phantasie-schmiede.de',
     'category'         => 'plugin',
@@ -9,12 +9,12 @@ $EM_CONF['psb_poems'] = [
     'constraints'      => [
         'conflicts' => [],
         'depends'   => [
-            'psb_foundation' => '^2',
+            'foundation' => '3.0',
         ],
         'suggests'  => [],
     ],
     'description'      => 'Manage and display poems',
     'state'            => 'beta',
-    'title'            => 'PSbits | Poems',
+    'title'            => 'PSBits | Poems',
     'version'          => '0.0.0',
 ];

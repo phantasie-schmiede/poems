@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace PSB\PsbPoems\Data;
+namespace PSBits\Poems\Data;
 
-use PSB\PsbFoundation\Data\AbstractExtensionInformation;
-use PSB\PsbFoundation\Data\PluginConfiguration;
-use PSB\PsbPoems\Controller\PoemController;
-use PSB\PsbPoems\Controller\Widget\PoemOfTheDayController;
+use PSBits\Foundation\Data\AbstractExtensionInformation;
+use PSBits\Foundation\Data\PluginConfiguration;
+use PSBits\Poems\Controller\PoemController;
+use PSBits\Poems\Controller\Widget\PoemOfTheDayController;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /*
- * This file is part of PSB Poems.
+ * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -19,7 +19,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * Class ExtensionInformation
  *
- * @package PSB\PsbPoems\Data
+ * @package PSBits\Poems\Data
  */
 class ExtensionInformation extends AbstractExtensionInformation
 {

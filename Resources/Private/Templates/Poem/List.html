@@ -1,7 +1,7 @@
 <html
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-    xmlns:psb="http://typo3.org/ns/PSB/PsbFoundation/ViewHelpers">
+    xmlns:psb="http://typo3.org/ns/PSBits/Foundation/ViewHelpers">
 <div class="gx-2 isotope-content row text-center">
     <div class="col-lg-4 col-md-6 col-sm-12 isotope-sizer"></div>
     <f:for
@@ -24,7 +24,7 @@
                         {poem.title}
                     </h5>
                     <h6 class="card-subtitle mb-2 text-body-secondary">
-                        <psb:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:by-with-space" />
+                        <psb:translate id="LLL:EXT:poems/Resources/Private/Language/Frontend/Poem/list.xlf:by-with-space" />
                         <f:for
                             as="author"
                             each="{poem.authors}"
@@ -37,11 +37,11 @@
                                     <f:if condition="{iterator.cycle} == {iterator.total - 1}">
                                         <f:then>
                                             {author.name}
-                                            <psb:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:and-with-spaces" />
+                                            <psb:translate id="LLL:EXT:poems/Resources/Private/Language/Frontend/Poem/list.xlf:and-with-spaces" />
                                         </f:then>
                                         <f:else>
                                             {author.name}
-                                            <psb:translate id="LLL:EXT:psb_poems/Resources/Private/Language/Frontend/Poem/list.xlf:comma-with-space" />
+                                            <psb:translate id="LLL:EXT:poems/Resources/Private/Language/Frontend/Poem/list.xlf:comma-with-space" />
                                         </f:else>
                                     </f:if>
                                 </f:else>
@@ -58,7 +58,7 @@
 </div>
 
 <f:section name="FooterAssets">
-    <f:asset.script identifier="isotope" src="EXT:psb_poems/Resources/Public/JavaScript/Vendors/isotope.min.js" />
-    <f:asset.script identifier="psb-poems" src="EXT:psb_poems/Resources/Public/JavaScript/app.js" />
+    <f:asset.script identifier="isotope" src="EXT:poems/Resources/Public/JavaScript/Vendors/isotope.min.js" />
+    <f:asset.script identifier="poems" src="EXT:poems/Resources/Public/JavaScript/app.js" />
 </f:section>
 </html>

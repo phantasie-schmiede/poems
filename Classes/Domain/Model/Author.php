@@ -1,23 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace PSB\PsbPoems\Domain\Model;
+namespace PSBits\Poems\Domain\Model;
 
 /*
- * This file is part of PSB Poems.
+ * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
 
-use PSB\PsbFoundation\Attribute\TCA\ColumnType\Input;
-use PSB\PsbFoundation\Attribute\TCA\Ctrl;
+use PSBits\Foundation\Attribute\TCA\ColumnType\Input;
+use PSBits\Foundation\Attribute\TCA\Ctrl;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
  * Class Author
  *
- * @package PSB\PsbPoems\Domain\Model
+ * @package PSBits\Poems\Domain\Model
  */
 #[Ctrl(label: 'name', searchFields: ['name'])]
 class Author extends AbstractEntity
