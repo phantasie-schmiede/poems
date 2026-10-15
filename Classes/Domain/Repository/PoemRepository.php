@@ -17,6 +17,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 /**
  * Class PoemRepository
  *
+ * @extends Repository<Poem>
  * @package PSBits\Poems\Domain\Repository
  */
 class PoemRepository extends Repository

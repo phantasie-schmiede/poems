@@ -10,11 +10,14 @@ namespace PSBits\Poems\Domain\Repository;
  * LICENSE.txt file that was distributed with this source code.
  */
 
+use PSBits\Poems\Domain\Model\Category;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Class CategoryRepository
+ *
+ * @extends Repository<Category>
  * @package PSBits\Poems\Domain\Repository
  */
 class CategoryRepository extends Repository
