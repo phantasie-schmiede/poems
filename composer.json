@@ -23,7 +23,6 @@
     "description": "Manage and display poems",
     "extra": {
         "typo3/cms": {
-            "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "extension-key": "poems",
             "web-dir": ".Build/public"
         }
