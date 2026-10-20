@@ -2,63 +2,58 @@
     data-namespace-typo3-fluid="true"
     xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
     xmlns:psb="http://typo3.org/ns/PSBits/Foundation/ViewHelpers">
-<div class="gx-2 isotope-content row text-center">
-    <div class="col-lg-4 col-md-6 col-sm-12 isotope-sizer"></div>
-    <f:for
-        as="poem"
-        each="{poems}">
-        <div class="col-lg-4 col-md-6 col-sm-12 isotope-item">
-            <div
-                class="card mb-2
-                    <f:for each='{poem.authors}' as='author'>
-                        {author.name}
-                    </f:for>
-                    <f:for each='{poem.languages}' as='language'>
-                        {language.name}
-                    </f:for>
-                    <f:for each='{poem.categories}' as='category'>
-                        {category.name}
-                    </f:for>">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        {poem.title}
-                    </h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                        <psb:translate id="LLL:EXT:poems/Resources/Private/Language/Frontend/Poem/list.xlf:by-with-space" />
-                        <f:for
-                            as="author"
-                            each="{poem.authors}"
-                            iteration="iterator">
-                            <f:if condition="{iterator.isLast}">
-                                <f:then>
-                                    {author.name}
-                                </f:then>
-                                <f:else>
-                                    <f:if condition="{iterator.cycle} == {iterator.total - 1}">
-                                        <f:then>
-                                            {author.name}
-                                            <psb:translate id="LLL:EXT:poems/Resources/Private/Language/Frontend/Poem/list.xlf:and-with-spaces" />
-                                        </f:then>
-                                        <f:else>
-                                            {author.name}
-                                            <psb:translate id="LLL:EXT:poems/Resources/Private/Language/Frontend/Poem/list.xlf:comma-with-space" />
-                                        </f:else>
-                                    </f:if>
-                                </f:else>
-                            </f:if>
-                        </f:for>
-                    </h6>
-                    <div class="card-text">
-                        <f:format.html>{poem.text}</f:format.html>
+    <div class="gx-2 isotope-content row text-center">
+        <div class="col-sm-12 col-md-6 col-lg-4 isotope-sizer"></div>
+        <f:for
+            as="poem"
+            each="{poems}">
+            <div class="col-sm-12 col-md-6 col-lg-4 isotope-item">
+                <div
+                    class="card mb-2 <f:for each='{poem.authors}' as='author'> {author.name} </f:for> <f:for each='{poem.languages}' as='language'> {language.name} </f:for> <f:for each='{poem.categories}' as='category'> {category.name} </f:for>">
+                    <div class="card-body">
+                        <h5 class="card-title">{poem.title}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">
+                            <psb:translate
+                                id="LLL:EXT:poems/Resources/Private/Language/Frontend/Poem/list.xlf:by-with-space" />
+                            <f:for
+                                as="author"
+                                each="{poem.authors}"
+                                iteration="iterator">
+                                <f:if condition="{iterator.isLast}">
+                                    <f:then>{author.name}</f:then>
+                                    <f:else>
+                                        <f:if
+                                            condition="{iterator.cycle} == {iterator.total - 1}">
+                                            <f:then>
+                                                {author.name}
+                                                <psb:translate
+                                                    id="LLL:EXT:poems/Resources/Private/Language/Frontend/Poem/list.xlf:and-with-spaces" />
+                                            </f:then>
+                                            <f:else>
+                                                {author.name}
+                                                <psb:translate
+                                                    id="LLL:EXT:poems/Resources/Private/Language/Frontend/Poem/list.xlf:comma-with-space" />
+                                            </f:else>
+                                        </f:if>
+                                    </f:else>
+                                </f:if>
+                            </f:for>
+                        </h6>
+                        <div class="card-text">
+                            <f:format.html>{poem.text}</f:format.html>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </f:for>
-</div>
+        </f:for>
+    </div>
 
-<f:section name="FooterAssets">
-    <f:asset.script identifier="isotope" src="EXT:poems/Resources/Public/JavaScript/Vendors/isotope.min.js" />
-    <f:asset.script identifier="poems" src="EXT:poems/Resources/Public/JavaScript/app.js" />
-</f:section>
+    <f:section name="FooterAssets">
+        <f:asset.script
+            identifier="isotope"
+            src="EXT:poems/Resources/Public/JavaScript/Vendors/isotope.min.js" />
+        <f:asset.script
+            identifier="poems"
+            src="EXT:poems/Resources/Public/JavaScript/app.js" />
+    </f:section>
 </html>
