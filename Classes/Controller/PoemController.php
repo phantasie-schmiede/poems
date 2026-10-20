@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PSBits\Poems\Controller;
@@ -36,10 +37,10 @@ class PoemController extends ActionController
     #[PluginAction(default: true, uncached: true)]
     public function listAction(): ResponseInterface
     {
-        $authors = $this->authorRepository->findAll();
+        $authors    = $this->authorRepository->findAll();
         $categories = $this->categoryRepository->findAll();
-        $languages = $this->languageRepository->findAll();
-        $poems = $this->poemRepository->findAll()->toArray();
+        $languages  = $this->languageRepository->findAll();
+        $poems      = $this->poemRepository->findAll()->toArray();
 
         shuffle($poems);
 

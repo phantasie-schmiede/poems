@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PSBits\Poems\Domain\Model;
@@ -99,9 +100,9 @@ class Poem extends AbstractEntity
 
     public function initializeObject(): void
     {
-        $this->authors = new ObjectStorage();
+        $this->authors    = new ObjectStorage();
         $this->categories = new ObjectStorage();
-        $this->languages = new ObjectStorage();
+        $this->languages  = new ObjectStorage();
     }
 
     /**

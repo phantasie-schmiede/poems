@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PSBits\Poems\Controller\Widget;
@@ -42,7 +43,7 @@ class PoemOfTheDayController extends ActionController
      */
     private function getNumberOfDays(): int
     {
-        $now = new DateTime();
+        $now  = new DateTime();
         $base = new DateTime('2024-01-01');
         $diff = $now->diff($base);
 
