@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PSBits\Poems\Controller\Widget;
-
 /*
  * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
+
+namespace PSBits\Poems\Controller\Widget;
 
 use DateTime;
 use PSBits\Foundation\Attribute\PluginAction;
@@ -19,7 +19,7 @@ use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
- * Class PoemController
+ * Class PoemOfTheDayController
  *
  * @package PSBits\Poems\Controller\Widget
  */

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PSBits\Poems\Domain\Repository;
-
 /*
  * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
+
+namespace PSBits\Poems\Domain\Repository;
 
 use PSBits\Poems\Domain\Model\Language;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;

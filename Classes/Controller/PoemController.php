@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PSBits\Poems\Controller;
-
 /*
  * This file is part of PSBits Poems.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
+
+namespace PSBits\Poems\Controller;
 
 use PSBits\Foundation\Attribute\PluginAction;
 use PSBits\Poems\Domain\Repository\AuthorRepository;
