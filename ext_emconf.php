@@ -17,5 +17,5 @@ $EM_CONF[$_EXTKEY] = [
     'description'      => 'Manage and display poems',
     'state'            => 'alpha',
     'title'            => 'PSBits | Poems',
-    'version'          => '0.1.0',
+    'version'          => '0.1.1',
 ];
